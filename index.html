@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
 </head>
 <body>
-    <img src="images/cowboyHat.png">
+    <div class="logo">
+        <img src="images/cowboyHat.png">
+    </div>
 
     <div class="title">
         Western Standoff
@@ -16,7 +19,7 @@
     <div class="arena">
         <div class="cowboys">
             <div class="player">
-                <img src="images/bulletHole.png">
+                <img class="hidden" src="images/bulletHole.png">
                 <img src="images/cowboy.png">
                 <div class="playerChoices">
                     <button class="rock">
@@ -32,26 +35,29 @@
             </div>
 
             <div class="ai">
-                <img src="images/bulletHole.png">
+                <img class="hidden" src="images/bulletHole.png">
                 <img src="images/cowboy2.png">
                 <div class="aiChoices">
-                    <button class="rock">
+                    <button class="rock disabled">
                         
                     </button>
-                    <button class="paper">
+                    <button class="paper disabled">
                         
                     </button>
-                    <button class="scissors">
+                    <button class="scissors disabled">
                         
                     </button>
                 </div>
             </div>
         </div>
 
-        <div class="gameText"> DRAW! </div>
+        <div class="gameText">
+            <div class="pop hidden">
+                DRAW!
+            </div>
+        </div>
+        <button class="readyButton"> Ready! </button>
     </div>
-
-    <button class="readyButton"> Ready! </button>
 
     <div class="ground">
         <div class="tumbleweed">
@@ -59,16 +65,24 @@
         </div>
     </div>
 
-    <div class="roundText"></div>
-
     <div class="healthBars">
         <div class="playerHealth">
-
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
         </div>
 
         <div class="aiHealth">
-
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
+            <img class="heart" src="images/heart.png">
         </div>
+
+        <div class="roundText">Round: 0</div>
     </div>
      
     <script src="script.js"></script>

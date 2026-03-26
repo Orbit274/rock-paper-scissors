@@ -1,0 +1,201 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #f4e6c8;
+    min-height: 100vh;
+    font-family: "Rye";
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    height: 8vh;
+    width: 100%;
+    margin: -.5rem 0 -1.1rem 0;
+}
+
+.logo img{
+    height: 100%;
+}
+
+.title {
+    text-align: center;
+    height: 8vh;
+    font-size: clamp(1.5rem, 8vh, 3rem);
+}
+
+.arena {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 65vh;
+    margin-top: -2rem;
+}
+
+.arena::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: black;
+    opacity: 0.3;
+}
+
+.cowboys {
+    display: flex;
+    width: 100%;
+}
+
+.player, .ai {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.player img:first-child, .ai img:first-child {
+    position: absolute;
+    z-index: 2;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: auto;
+}
+
+.player img:nth-child(2), .ai img:nth-child(2) {
+    height: 80%;
+    margin-bottom: -2.5rem;
+}
+
+.playerChoices, .aiChoices {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.playerChoices > *, .aiChoices > * {
+    width: 18%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: transparent;
+    font-family: "Rye";
+}
+
+.disabled{
+  pointer-events: none;
+}
+
+.gameText {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2rem, 5vw, 5rem);
+    font-weight: bold;
+}
+
+.pop {
+    animation: none;
+}
+
+@keyframes popIn {
+    0% { 
+        transform: scale(0); 
+        opacity: 0; 
+    }
+    80% { 
+        transform: scale(1.2); 
+    }
+    100% { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+.readyButton {
+    position: absolute;
+    width: 8%;
+    aspect-ratio: 1/1;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -80%);
+    border-radius: 50%;
+    background-color: #D63F22;
+    font-family: "Rye";
+    font-size: 1.5rem;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.ground {
+    position: relative;
+    height: 15vh;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+}
+
+.tumbleweed {
+    position: absolute;
+    transform-origin: center center;
+}
+
+.tumbleweed img{
+    width: 30%;
+    height: auto;
+    animation: none;
+}
+
+@keyframes roll {
+    0% {
+        transform: translateX(0vw) rotate(0deg);
+    }
+    20% {
+        transform: translateX(18vw) rotate(360deg);
+    }
+    40% {
+        transform: translateX(36vw) rotate(720deg);
+    }
+    60% {
+        transform: translateX(54vw) rotate(1080deg);
+    }
+    80% {
+        transform: translateX(72vw) rotate(1440deg);
+    }
+    100% {
+        transform: translateX(90vw) rotate(1800deg);
+    }
+}
+
+.healthBars{ 
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.roundText {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+}
+
+.playerHealth, .aiHealth {
+    display: flex;
+    width: 50%;
+    column-gap: 1%;
+    justify-content: center;
+}
+
+.heart {
+    width: 7%;
+    height: auto;
+}
