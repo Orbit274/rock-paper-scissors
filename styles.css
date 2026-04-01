@@ -1,3 +1,13 @@
+/* ================================================================================
+    Global
+   ================================================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -6,6 +16,10 @@ body {
     min-height: 100vh;
     font-family: "Rye";
 }
+
+/* ================================================================================
+    Header and logo 
+   ================================================================================ */
 
 .logo {
     display: flex;
@@ -25,6 +39,10 @@ body {
     font-size: clamp(1.5rem, 8vh, 3rem);
 }
 
+/* ================================================================================
+    Game Arena/Main Section 
+   ================================================================================ */
+
 .arena {
     display: flex;
     flex-direction: column;
@@ -33,6 +51,7 @@ body {
     margin-top: -2rem;
 }
 
+/* Line between Player and AI cowboys */
 .arena::before {
     content: "";
     position: absolute;
@@ -45,11 +64,13 @@ body {
     opacity: 0.3;
 }
 
+/* Section for cowboys */
 .cowboys {
     display: flex;
     width: 100%;
 }
 
+/* Containers for each player/character */
 .player, .ai {
     display: flex;
     flex-direction: column;
@@ -59,6 +80,7 @@ body {
     position: relative;
 }
 
+/* Bullet hole images */
 .player img:first-child, .ai img:first-child {
     position: absolute;
     z-index: 2;
@@ -69,10 +91,15 @@ body {
     height: auto;
 }
 
+/* Cowboy images */
 .player img:nth-child(2), .ai img:nth-child(2) {
     height: 80%;
     margin-bottom: -2.5rem;
 }
+
+/* ================================================================================
+    Interactive Elements
+   ================================================================================ */
 
 .playerChoices, .aiChoices {
     display: flex;
@@ -80,6 +107,7 @@ body {
     justify-content: space-around;
 }
 
+/* Buttons for choices (rock/paper/scissors) */
 .playerChoices > *, .aiChoices > * {
     width: 18%;
     aspect-ratio: 1/1;
@@ -88,36 +116,10 @@ body {
     font-family: "Rye";
 }
 
-.disabled{
-  pointer-events: none;
-}
-
-.gameText {
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(2rem, 5vw, 5rem);
-    font-weight: bold;
-}
-
-.pop {
-    animation: none;
-}
-
-@keyframes popIn {
-    0% { 
-        transform: scale(0); 
-        opacity: 0; 
-    }
-    80% { 
-        transform: scale(1.2); 
-    }
-    100% { 
-        transform: scale(1); 
-        opacity: 1; 
-    }
+/* Button click effects */
+.playerChoices button:active, aiChoices button:active{
+    transform: scale(0.95);
+    box-shadow: 0 2px #666;
 }
 
 .readyButton {
@@ -133,9 +135,35 @@ body {
     font-size: 1.5rem;
 }
 
-.hidden {
-    opacity: 0;
+/* Ready button click effects */
+.readyButton:active {
+    transform: translate(-50%, -80%) scale(0.95);
+    box-shadow: 0 2px #666;
 }
+
+/* ================================================================================
+    UI Text/Feedback Text
+   ================================================================================ */
+
+/* DRAW text container */
+.gameText {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2rem, 5vw, 5rem);
+    font-weight: bold;
+}
+
+/* DRAW text */
+.pop {
+    animation: none;
+}
+
+/* ================================================================================
+    Ground/Environment
+   ================================================================================ */
 
 .ground {
     position: relative;
@@ -155,26 +183,9 @@ body {
     animation: none;
 }
 
-@keyframes roll {
-    0% {
-        transform: translateX(0vw) rotate(0deg);
-    }
-    20% {
-        transform: translateX(18vw) rotate(360deg);
-    }
-    40% {
-        transform: translateX(36vw) rotate(720deg);
-    }
-    60% {
-        transform: translateX(54vw) rotate(1080deg);
-    }
-    80% {
-        transform: translateX(72vw) rotate(1440deg);
-    }
-    100% {
-        transform: translateX(90vw) rotate(1800deg);
-    }
-}
+/* ================================================================================
+    Healthbar/HUD
+   ================================================================================ */
 
 .healthBars{ 
     display: flex;
@@ -198,4 +209,59 @@ body {
 .heart {
     width: 7%;
     height: auto;
+}
+
+/* ================================================================================
+    Special Effects and Animations
+   ================================================================================ */
+
+.glow {
+    box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 60px #0ff;
+}
+
+.playerChoices button:not(.disabled):hover {
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+.disabled{
+  pointer-events: none;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+@keyframes popIn {
+    0% { 
+        transform: scale(0); 
+        opacity: 0; 
+    }
+    80% { 
+        transform: scale(1.2); 
+    }
+    100% { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+@keyframes roll {
+    0% {
+        transform: translateX(0vw) rotate(0deg);
+    }
+    20% {
+        transform: translateX(18vw) rotate(360deg);
+    }
+    40% {
+        transform: translateX(36vw) rotate(720deg);
+    }
+    60% {
+        transform: translateX(54vw) rotate(1080deg);
+    }
+    80% {
+        transform: translateX(72vw) rotate(1440deg);
+    }
+    100% {
+        transform: translateX(89.5vw) rotate(1800deg);
+    }
 }
