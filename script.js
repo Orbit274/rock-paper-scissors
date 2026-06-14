@@ -28,7 +28,8 @@ let gameState = {
 const WIN_MAP = {
     rock: "scissors",
     paper: "rock",
-    scissors: "paper"
+    scissors: "paper",
+    null: null
 };
 
 // Random generation of "AI" choice
@@ -99,15 +100,15 @@ function playRound() {
     if (playerChoice === aiChoice) {
         UI.roundText.textContent = `Round: ${gameState.round} | Player: ${playerChoice} | AI: ${aiChoice} | Tie!`;
     }
-    else if (WIN_MAP[playerChoice] === aiChoice || playerChoice === null) {
+    else if (WIN_MAP[playerChoice] === aiChoice) {
         gameState.aiScore++;
-        UI.roundText.textContent = `Round: ${gameState.round} | Player: ${playerChoice} | AI: ${aiChoice} | Player Loses!`;
+        UI.roundText.textContent = `Round: ${gameState.round} | Player: ${playerChoice} | AI: ${aiChoice} | Player Wins!`;
         UI.playerBullet.classList.remove("hidden");
         updateHeart(gameState.aiScore, UI.playerHearts);
     }
     else {
         gameState.playerScore++;
-        UI.roundText.textContent = `Round: ${gameState.round} | Player: ${playerChoice} | AI: ${aiChoice} | Player Wins!`;
+        UI.roundText.textContent = `Round: ${gameState.round} | Player: ${playerChoice} | AI: ${aiChoice} | Player Loses!`;
         UI.aiBullet.classList.toggle("hidden", false);
         updateHeart(gameState.playerScore, UI.aiHearts);
     }
